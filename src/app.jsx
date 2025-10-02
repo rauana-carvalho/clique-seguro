@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import LoadingIcon from './assets/loading.svg';
 import Header from './components/header';
 import './app.css'; 
-import LogoIcon from './assets/paste.svg';
+import PasteIcon from './assets/paste.svg';
+import PasteIconTut from './assets/paste-tut.svg';
 
 const analyzeContent = (text) => {
   return new Promise(resolve => {
@@ -157,7 +158,7 @@ function App() {
                 onChange={(e) => setInputValue(e.target.value)}
               />
               <button onClick={handlePasteFromClipboard} className="paste-button" title="Colar texto copiado">
-                <img src={LogoIcon} alt="Colar" className="paste-icon" />
+                <img src={PasteIcon} alt="Colar" className="paste-icon" />
                 <span className="paste-text">Colar</span>
               </button>
             </div>
@@ -209,7 +210,7 @@ function App() {
                 <h3>Passo a Passo:</h3>
                 <ol>
                   <li><strong>Copie</strong> a mensagem suspeita</li>
-                  <li><strong>Cole</strong> aqui usando o botão "📋 Colar"</li>
+                  <li><strong>Cole</strong> aqui usando o botão "<img src={PasteIconTut} alt="Colar" className="paste-tut"/>"</li>
                   <li><strong>Clique</strong> em "Verificar Agora"</li>
                   <li><strong>Aguarde</strong> o resultado da análise</li>
                 </ol>

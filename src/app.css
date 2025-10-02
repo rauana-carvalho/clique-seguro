@@ -101,6 +101,12 @@
 
 }
 
+.paste-tut {
+  width: 3.4vh;
+  height: 3.4vh;
+  vertical-align: middle;
+}
+
 .paste-text {
   display: inline-block;
   opacity: 0;
