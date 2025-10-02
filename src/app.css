@@ -72,13 +72,12 @@
 
 .paste-button {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: var(--button-color);
-  color: var(--white);
+  top: 7px;
+  right: 7px;
+  background-color: #e4bce7;
   border: none;
   border-radius: 6px;
-  padding: 8px;
+  padding: 7px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -90,13 +89,16 @@
 }
 
 .paste-button:hover {
-  background-color: var(--button-hover-color);
-  padding: 8px 12px;
+  background-color: #e4bce7;
+  padding: 7px 12px;
 }
 
 .paste-icon {
   display: inline-block;
   transition: margin-right 0.3s ease;
+  width: 3.8vh;
+  height: 3.8vh;
+
 }
 
 .paste-text {
@@ -111,11 +113,13 @@
 
 .paste-button:hover .paste-icon {
   margin-right: 6px;
+
 }
 
 .paste-button:hover .paste-text {
   opacity: 1;
   max-width: 50px;
+  color: var(--white);
 }
 
 /* Grupo de botões */

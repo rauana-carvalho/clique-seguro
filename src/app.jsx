@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import LoadingIcon from './assets/loading.svg';
 import Header from './components/header';
 import './app.css'; 
+import LogoIcon from './assets/paste.svg';
 
 const analyzeContent = (text) => {
   return new Promise(resolve => {
@@ -38,7 +39,7 @@ const analyzeContent = (text) => {
         const cleanedUrl = deLeetedUrl.replace(/[^a-zA-Z0-9]/g, '');
 
         if (suspiciousUrlTerms.some(term => cleanedUrl.includes(term))) {
-          resolve({ status: 'danger', message: 'Alerta! O endereço do site usa táticas de camuflagem (letras trocadas por números) para parecer legítimo.' });
+          resolve({ status: 'danger', message: 'Alerta! O endereço do site usa táticas de camuflagem para parecer legítimo.' });
           return;
         }
       }
@@ -156,7 +157,7 @@ function App() {
                 onChange={(e) => setInputValue(e.target.value)}
               />
               <button onClick={handlePasteFromClipboard} className="paste-button" title="Colar texto copiado">
-                <span className="paste-icon">📋</span>
+                <img src={LogoIcon} alt="Colar" className="paste-icon" />
                 <span className="paste-text">Colar</span>
               </button>
             </div>
