@@ -183,7 +183,6 @@ function App() {
         {renderContent()}
       </main>
       
-      {/* Modal de Ajuda */}
       {showHelp && (
         <div className="modal-overlay" onClick={() => setShowHelp(false)}>
           <div className="help-modal" onClick={(e) => e.stopPropagation()}>

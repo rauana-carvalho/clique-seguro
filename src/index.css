@@ -26,8 +26,8 @@ body {
   align-items: center;
   min-height: 100vh;
 
-  padding-top: 14vh;    /* espaço no topo (14% da altura da tela) */
-  padding-bottom: 5vh; /* espaço embaixo (5% da altura da tela) */
+  padding-top: 14vh;  
+  padding-bottom: 5vh;
   padding-left: 16px;
   padding-right: 16px;
   

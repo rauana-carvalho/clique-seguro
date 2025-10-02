@@ -5,7 +5,6 @@
   padding: 40px;
   width: 100%;
   max-width: 500px;
-  /* min-height foi removido da media query, vamos remover daqui também para consistência */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -13,13 +12,11 @@
   align-items: center;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
-  /* AS LINHAS DE MARGIN FORAM REMOVIDAS DAQUI */
 }
 
-/* --- Media Query para Telas Pequenas (Celulares) --- */
+
 @media (max-width: 600px) {
   .card {
-    /* A MARGEM FOI REMOVIDA DAQUI */
     padding: 24px;
     min-height: auto;
   }
@@ -61,9 +58,6 @@
   }
 }
 
-/* Novas funcionalidades - Acessibilidade para idosos */
-
-/* Container de entrada com botão colar */
 .input-container {
   position: relative;
   width: 100%;
@@ -104,6 +98,10 @@
 .paste-tut {
   width: 3.4vh;
   height: 3.4vh;
+  max-width: 32px;
+  max-height: 32px;
+  min-width: 18px;
+  min-height: 18px;
   vertical-align: middle;
 }
 
@@ -128,7 +126,6 @@
   color: var(--white);
 }
 
-/* Grupo de botões */
 .button-group {
   display: flex;
   flex-direction: column;
@@ -156,7 +153,6 @@
   color: var(--white);
 }
 
-/* Botões de resultado */
 .result-buttons {
   display: flex;
   flex-direction: column;
@@ -165,9 +161,6 @@
   margin-top: 16px;
 }
 
-
-
-/* Modais */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -202,7 +195,6 @@
   margin-bottom: 0;
 }
 
-/* Modal header sem seta (centralizado) */
 .help-modal .modal-header {
   justify-content: center;
   gap: 0;
@@ -229,7 +221,6 @@
   justify-content: center;
 }
 
-/* Vídeo tutorial */
 .video-container {
   margin-bottom: 24px;
 }
@@ -257,7 +248,6 @@
   font-style: italic;
 }
 
-/* Passo a passo */
 .step-by-step {
   margin-bottom: 24px;
 }
@@ -283,7 +273,6 @@
   font-weight: 500;
 }
 
-/* Dicas de segurança */
 .help-tips {
   background-color: #f0f9ff;
   border: 2px solid #0ea5e9;
@@ -311,7 +300,6 @@
   font-weight: 500;
 }
 
-/* Ações do modal */
 .modal-actions {
   margin-top: 24px;
   padding-top: 20px;
@@ -339,7 +327,6 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Botão desabilitado */
 .verify-button:disabled {
   background-color: #d1d5db;
   cursor: not-allowed;
@@ -350,7 +337,6 @@
   background-color: #d1d5db;
 }
 
-/* Seta de volta */
 .back-arrow {
   background: none;
   border: none;
@@ -371,7 +357,6 @@
   color: var(--text-color);
 }
 
-/* Responsividade */
 @media (max-width: 600px) {
   .button-group {
     gap: 16px;
@@ -421,10 +406,17 @@
     font-size: 18px;
     padding: 16px 20px;
   }
+
+  .paste-tut {
+    width: 3.5vh;
+    height: 3.5vh;
+    max-width: 28px;
+    max-height: 28px;
+    min-width: 20px;
+    min-height: 20px;
+  }
 }
 
-
-/* --- O RESTANTE DO CÓDIGO PERMANECE IGUAL --- */
 .title {
   font-size: 42px;
   font-weight: 700;
