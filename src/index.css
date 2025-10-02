@@ -1,0 +1,35 @@
+:root {
+  --background-color: #f0f2f5;
+  --card-color: #ffffff;
+  --text-color: #1c1e21;
+  --placeholder-color: #606770;
+  --button-color: #c57ccc;
+  --button-hover-color: #bd68c4;
+  --safe-color: #10b981;
+  --danger-color: #ef4444;
+  --white: #ffffff;
+  --logo-color: #c57ccc;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  padding-top: 14vh;    /* espaço no topo (14% da altura da tela) */
+  padding-bottom: 5vh; /* espaço embaixo (5% da altura da tela) */
+  padding-left: 16px;
+  padding-right: 16px;
+  
+  box-sizing: border-box; 
+}

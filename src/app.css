@@ -1,0 +1,171 @@
+.card {
+  background-color: var(--card-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  /* min-height foi removido da media query, vamos remover daqui também para consistência */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  /* AS LINHAS DE MARGIN FORAM REMOVIDAS DAQUI */
+}
+
+/* --- Media Query para Telas Pequenas (Celulares) --- */
+@media (max-width: 600px) {
+  .card {
+    /* A MARGEM FOI REMOVIDA DAQUI */
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .text-input {
+    font-size: 18px;
+  }
+
+  .verify-button {
+    font-size: 20px;
+    padding: 16px;
+  }
+  
+  .result-safe, .result-danger {
+    padding: 24px;
+  }
+
+  .result-title {
+    font-size: 28px;
+  }
+
+  .result-description {
+    font-size: 16px;
+  }
+}
+
+
+/* --- O RESTANTE DO CÓDIGO PERMANECE IGUAL --- */
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--text-color);
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--placeholder-color);
+  margin: 0 0 24px 0;
+  max-width: 400px;
+}
+
+.text-input {
+  width: 100%;
+  height: 120px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  resize: none;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  transition: border-color 0.2s;
+}
+
+.text-input::placeholder {
+  color: #aaa;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--button-color);
+}
+
+.verify-button {
+  width: 100%;
+  padding: 18px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.verify-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.loading-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.loading-text {
+  font-size: 24px;
+  color: var(--placeholder-color);
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.result-safe, .result-danger {
+  color: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.result-safe {
+  background-color: var(--safe-color);
+}
+
+.result-danger {
+  background-color: var(--danger-color);
+}
+
+.result-safe .verify-button, .result-danger .verify-button {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.result-safe .verify-button:hover, .result-danger .verify-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.icon {
+  font-size: 80px;
+  line-height: 1;
+}
+
+.result-title {
+  font-size: 32px;
+  margin: 16px 0 8px 0;
+}
+
+.result-description {
+  font-size: 18px;
+  margin: 0 0 24px 0;
+  max-width: 350px;
+}
