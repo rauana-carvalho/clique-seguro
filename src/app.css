@@ -538,3 +538,88 @@
   line-height: 1.6;
   font-weight: 500;
 }
+
+/* Resultado com header (título + botão de ajuda) */
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.result-header .result-title {
+  text-align: center;
+  margin: 0;
+}
+
+.help-icon-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 52px;
+}
+
+.help-icon-btn:hover {
+  background-color: #f3f4f6;
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Modal de canais de ajuda */
+.channels-info {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.channel-item {
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.channel-item h3 {
+  margin: 0 0 12px 0;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.channel-item p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.emergency-tip {
+  background-color: #fef2f2;
+  border: 2px solid #fca5a5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.emergency-tip h3 {
+  margin: 0 0 12px 0;
+  color: #dc2626;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.emergency-tip p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #991b1b;
+  font-weight: 600;
+}
