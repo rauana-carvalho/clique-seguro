@@ -70,7 +70,6 @@ function App() {
   const [status, setStatus] = useState('idle'); 
   const [resultMessage, setResultMessage] = useState('');
   const [showHelp, setShowHelp] = useState(false);
-  const [showReport, setShowReport] = useState(false);
 
   const handleVerify = async () => {
     if (!inputValue.trim()) return;
@@ -96,9 +95,7 @@ function App() {
     setShowHelp(true);
   };
 
-  const handleReport = () => {
-    setShowReport(true);
-  };
+
 
   const handlePasteFromClipboard = async () => {
     try {
@@ -127,9 +124,6 @@ function App() {
             <div className="result-buttons">
               <button onClick={handleReset} className="verify-button">
                 Verificar Outro
-              </button>
-              <button onClick={handleReport} className="report-button">
-                Mesmo assim é golpe?
               </button>
             </div>
           </div>
@@ -229,60 +223,16 @@ function App() {
                 </ul>
               </div>
               
-              <div className="modal-actions">
-                <button className="back-button" onClick={() => setShowHelp(false)}>
-                  ← Voltar para o Verificador
+              <div className="modal-footer">
+                <button className="verify-button" onClick={() => setShowHelp(false)}>
+                  Voltar ao Verificador
                 </button>
               </div>
             </div>
           </div>
         </div>
       )}
-      
-      {/* Modal de Relatar Golpe */}
-      {showReport && (
-        <div className="modal-overlay" onClick={() => setShowReport(false)}>
-          <div className="report-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h2>Relatar um Golpe</h2>
-              <button className="close-button" onClick={() => setShowReport(false)}>✕</button>
-            </div>
-            <div className="modal-content">
-              <p><strong>Você identificou um golpe que nossa ferramenta não detectou?</strong></p>
-              <p>Ajude-nos a melhorar! Suas informações são importantes para proteger outras pessoas.</p>
-              
-              <div className="report-form">
-                <label><strong>Como você descobriu que era golpe?</strong></label>
-                <textarea 
-                  className="report-textarea" 
-                  placeholder="Ex: Tentaram me pedir senha do banco, ou: O site era falso..."
-                ></textarea>
-                
-                <div className="report-buttons">
-                  <button className="submit-report-button">
-                    Enviar Relatório
-                  </button>
-                  <button className="cancel-button" onClick={() => setShowReport(false)}>
-                    Cancelar
-                  </button>
-                </div>
-              </div>
-              
-              <div className="contact-info">
-                <p><strong>Outras formas de nos ajudar:</strong></p>
-                <p>• WhatsApp: (11) 99999-9999</p>
-                <p>• Email: ajuda@cliqueseguro.com</p>
-              </div>
-              
-              <div className="modal-actions">
-                <button className="back-button" onClick={() => setShowReport(false)}>
-                  ← Voltar para o Verificador
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
     </>
   );
 }

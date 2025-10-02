@@ -28,6 +28,12 @@ function Header() {
           <div className="about-modal" onClick={(e) => e.stopPropagation()}>
             <div className="about-header">
               <h2>Sobre o Projeto</h2>
+              <button className="close-button" onClick={toggleAbout}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
             </div>
             <div className="about-content">
               <p>
@@ -46,12 +52,6 @@ function Header() {
                 a inclusão digital segura, contribuindo para a redução de vulnerabilidades e para o uso mais 
                 consciente da internet por parte da população idosa.
               </p>
-            </div>
-            
-            <div className="modal-actions">
-              <button className="back-button" onClick={toggleAbout}>
-                Voltar
-              </button>
             </div>
           </div>
         </div>

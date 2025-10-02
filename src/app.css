@@ -155,22 +155,7 @@
   margin-top: 16px;
 }
 
-.report-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white);
-  background-color: #fbbf24;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
 
-.report-button:hover {
-  background-color: #f59e0b;
-}
 
 /* Modais */
 .modal-overlay {
@@ -187,7 +172,7 @@
   padding: 20px;
 }
 
-.help-modal, .report-modal {
+.help-modal {
   background-color: var(--white);
   border-radius: 12px;
   max-width: 600px;
@@ -200,11 +185,17 @@
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 16px;
   padding: 24px 24px 0 24px;
   border-bottom: 2px solid #e5e7eb;
   margin-bottom: 0;
+}
+
+/* Modal header sem seta (centralizado) */
+.help-modal .modal-header {
+  justify-content: center;
+  gap: 0;
 }
 
 .modal-header h2 {
@@ -217,6 +208,15 @@
 
 .modal-content {
   padding: 24px;
+}
+
+.modal-footer {
+  padding: 0 24px 24px 24px;
+  border-top: 2px solid #e5e7eb;
+  margin-top: 24px;
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Vídeo tutorial */
@@ -301,99 +301,6 @@
   font-weight: 500;
 }
 
-/* Formulário de relatório */
-.report-form {
-  margin: 20px 0;
-}
-
-.report-form label {
-  display: block;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 14px;
-  color: var(--text-color);
-  line-height: 1.4;
-}
-
-.report-textarea {
-  width: 100%;
-  height: 130px;
-  border: 3px solid #ddd;
-  border-radius: 10px;
-  padding: 18px;
-  font-size: 17px;
-  font-family: 'Poppins', sans-serif;
-  resize: vertical;
-  margin-bottom: 18px;
-  line-height: 1.5;
-}
-
-.report-textarea:focus {
-  outline: none;
-  border-color: var(--button-color);
-}
-
-.report-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.submit-report-button {
-  flex: 1;
-  padding: 18px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--white);
-  background-color: var(--safe-color);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  min-width: 200px;
-  min-height: 56px;
-  line-height: 1.3;
-}
-
-.submit-report-button:hover {
-  background-color: #059669;
-}
-
-.cancel-button {
-  flex: 1;
-  padding: 18px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-color);
-  background-color: #f3f4f6;
-  border: 3px solid #d1d5db;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-  min-width: 140px;
-  min-height: 56px;
-  line-height: 1.3;
-}
-
-.cancel-button:hover {
-  background-color: #e5e7eb;
-}
-
-/* Informações de contato */
-.contact-info {
-  background-color: #fef3c7;
-  border: 2px solid #fbbf24;
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.contact-info p {
-  margin: 8px 0;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
 /* Ações do modal */
 .modal-actions {
   margin-top: 24px;
@@ -431,6 +338,27 @@
 
 .verify-button:disabled:hover {
   background-color: #d1d5db;
+}
+
+/* Seta de volta */
+.back-arrow {
+  background: none;
+  border: none;
+  color: var(--placeholder-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.back-arrow:hover {
+  background-color: #f3f4f6;
+  color: var(--text-color);
 }
 
 /* Responsividade */
