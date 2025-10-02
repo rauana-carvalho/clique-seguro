@@ -69,6 +69,8 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [status, setStatus] = useState('idle'); 
   const [resultMessage, setResultMessage] = useState('');
+  const [showHelp, setShowHelp] = useState(false);
+  const [showReport, setShowReport] = useState(false);
 
   const handleVerify = async () => {
     if (!inputValue.trim()) return;
@@ -90,6 +92,23 @@ function App() {
     setResultMessage('');
   };
 
+  const handleHelp = () => {
+    setShowHelp(true);
+  };
+
+  const handleReport = () => {
+    setShowReport(true);
+  };
+
+  const handlePasteFromClipboard = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setInputValue(text);
+    } catch (err) {
+      alert('Não foi possível colar o texto. Tente colar manualmente usando Ctrl+V');
+    }
+  };
+
   const renderContent = () => {
     switch (status) {
       case 'loading':
@@ -105,9 +124,14 @@ function App() {
             <div className="icon">✓</div>
             <h2 className="result-title">Parece Seguro</h2>
             <p className="result-description">{resultMessage}</p>
-            <button onClick={handleReset} className="verify-button">
-              Verificar outro
-            </button>
+            <div className="result-buttons">
+              <button onClick={handleReset} className="verify-button">
+                Verificar Outro
+              </button>
+              <button onClick={handleReport} className="report-button">
+                Mesmo assim é golpe?
+              </button>
+            </div>
           </div>
         );
       case 'danger':
@@ -116,9 +140,11 @@ function App() {
             <div className="icon">❗</div>
             <h2 className="result-title">Perigoso</h2>
             <p className="result-description">{resultMessage}</p>
-            <button onClick={handleReset} className="verify-button">
-              Verificar outro
-            </button>
+            <div className="result-buttons">
+              <button onClick={handleReset} className="verify-button">
+                Verificar Outro
+              </button>
+            </div>
           </div>
         );
       case 'idle':
@@ -126,16 +152,29 @@ function App() {
         return (
           <>
             <h1 className="title">Verificador de Segurança</h1>
-            <p className="subtitle">Cole a mensagem ou link suspeito abaixo e nós analisamos para você.</p>
-            <textarea
-              className="text-input"
-              placeholder="Cole aqui a mensagem ou o link suspeito"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button onClick={handleVerify} className="verify-button">
-              Verificar agora
-            </button>
+            <p className="subtitle">Cole a mensagem ou link suspeito que você recebeu.</p>
+            
+            <div className="input-container">
+              <textarea
+                className="text-input"
+                placeholder="Cole aqui a mensagem ou o link suspeito..."
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+              <button onClick={handlePasteFromClipboard} className="paste-button" title="Colar texto copiado">
+                <span className="paste-icon">📋</span>
+                <span className="paste-text">Colar</span>
+              </button>
+            </div>
+            
+            <div className="button-group">
+              <button onClick={handleVerify} className="verify-button" disabled={!inputValue.trim()}>
+                Verificar Agora
+              </button>
+              <button onClick={handleHelp} className="help-button">
+                Como Usar
+              </button>
+            </div>
           </>
         );
     }
@@ -147,6 +186,103 @@ function App() {
       <main className="card">
         {renderContent()}
       </main>
+      
+      {/* Modal de Ajuda */}
+      {showHelp && (
+        <div className="modal-overlay" onClick={() => setShowHelp(false)}>
+          <div className="help-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Como Usar a Ferramenta</h2>
+            </div>
+            <div className="modal-content">
+              <div className="video-container">
+                <h3>Tutorial em Vídeo:</h3>
+                <div className="video-embed">
+                  {/* Aqui você pode adicionar o embed do YouTube ou outro player */}
+                  <iframe 
+                    width="100%" 
+                    height="315" 
+                    src="about:blank" 
+                    title="Tutorial Clique Seguro"
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{backgroundColor: '#f3f4f6', borderRadius: '8px'}}
+                  ></iframe>
+                </div>
+              </div>
+              <div className="step-by-step">
+                <h3>Passo a Passo:</h3>
+                <ol>
+                  <li><strong>Copie</strong> a mensagem suspeita</li>
+                  <li><strong>Cole</strong> aqui usando o botão "📋 Colar"</li>
+                  <li><strong>Clique</strong> em "Verificar Agora"</li>
+                  <li><strong>Aguarde</strong> o resultado da análise</li>
+                </ol>
+              </div>
+              <div className="help-tips">
+                <h3>Dicas de Segurança:</h3>
+                <ul>
+                  <li>Desconfie de prêmios ou ofertas "imperdíveis"</li>
+                  <li>Nunca informe senhas por mensagem</li>
+                  <li>Bancos não pedem dados por WhatsApp</li>
+                  <li>Links encurtados podem esconder sites falsos</li>
+                </ul>
+              </div>
+              
+              <div className="modal-actions">
+                <button className="back-button" onClick={() => setShowHelp(false)}>
+                  ← Voltar para o Verificador
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Modal de Relatar Golpe */}
+      {showReport && (
+        <div className="modal-overlay" onClick={() => setShowReport(false)}>
+          <div className="report-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Relatar um Golpe</h2>
+              <button className="close-button" onClick={() => setShowReport(false)}>✕</button>
+            </div>
+            <div className="modal-content">
+              <p><strong>Você identificou um golpe que nossa ferramenta não detectou?</strong></p>
+              <p>Ajude-nos a melhorar! Suas informações são importantes para proteger outras pessoas.</p>
+              
+              <div className="report-form">
+                <label><strong>Como você descobriu que era golpe?</strong></label>
+                <textarea 
+                  className="report-textarea" 
+                  placeholder="Ex: Tentaram me pedir senha do banco, ou: O site era falso..."
+                ></textarea>
+                
+                <div className="report-buttons">
+                  <button className="submit-report-button">
+                    Enviar Relatório
+                  </button>
+                  <button className="cancel-button" onClick={() => setShowReport(false)}>
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+              
+              <div className="contact-info">
+                <p><strong>Outras formas de nos ajudar:</strong></p>
+                <p>• WhatsApp: (11) 99999-9999</p>
+                <p>• Email: ajuda@cliqueseguro.com</p>
+              </div>
+              
+              <div className="modal-actions">
+                <button className="back-button" onClick={() => setShowReport(false)}>
+                  ← Voltar para o Verificador
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

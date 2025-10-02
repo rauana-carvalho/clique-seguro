@@ -40,12 +40,13 @@
   background-color: var(--button-color);
   color: var(--white);
   border: none;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  min-height: 38px;
 }
 
 .about-button:hover {
@@ -92,7 +93,7 @@
 
 .about-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 24px 24px 0 24px;
   border-bottom: 1px solid #e5e7eb;
@@ -136,6 +137,34 @@
   margin-bottom: 0;
 }
 
+/* Ações do modal Sobre */
+.modal-actions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px solid #e5e7eb;
+  text-align: center;
+}
+
+.back-button {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background-color: var(--button-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 768px) {
   .app-header {
     padding: 12px 16px;
@@ -150,8 +179,9 @@
   }
   
   .about-button {
-    font-size: 12px;
-    padding: 6px 12px;
+    font-size: 14px;
+    padding: 10px 16px;
+    min-height: 40px;
   }
   
   .about-modal {
@@ -173,5 +203,10 @@
   
   .about-content p {
     font-size: 14px;
+  }
+  
+  .back-button {
+    font-size: 11px;
+    padding: 5px 10px;
   }
 }

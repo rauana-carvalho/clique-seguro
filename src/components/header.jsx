@@ -28,9 +28,6 @@ function Header() {
           <div className="about-modal" onClick={(e) => e.stopPropagation()}>
             <div className="about-header">
               <h2>Sobre o Projeto</h2>
-              <button className="close-button" onClick={toggleAbout}>
-                ✕
-              </button>
             </div>
             <div className="about-content">
               <p>
@@ -49,6 +46,12 @@ function Header() {
                 a inclusão digital segura, contribuindo para a redução de vulnerabilidades e para o uso mais 
                 consciente da internet por parte da população idosa.
               </p>
+            </div>
+            
+            <div className="modal-actions">
+              <button className="back-button" onClick={toggleAbout}>
+                Voltar
+              </button>
             </div>
           </div>
         </div>
