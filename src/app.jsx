@@ -8,38 +8,12 @@ const analyzeContent = (text) => {
     setTimeout(() => {
       const lowerCaseText = text.toLowerCase();
 
-      // Palavras-chave relacionadas a criptomoedas e investimentos suspeitos
-      const cryptoKeywords = [
-        'bitcoin', 'btc', 'ethereum', 'eth', 'cripto', 'criptomoeda', 'investimento garantido',
-        'trader', 'trading', 'robô de investimento', 'lucro garantido', 'ganhe dinheiro fácil',
-        'mercado bitcoin', 'binance', 'foxbit', 'mineração', 'wallet', 'carteira digital'
-      ];
-      
-      // Palavras-chave de golpes gerais
       const suspiciousKeywords = [
         'parabéns, você ganhou', 'prêmio', 'oferta imperdível', 'clique aqui para resgatar', 
-        'senha', 'banco', 'atualize seus dados', 'cartão de crédito', 'grátis', 'herança', 'dívida',
-        'pix grátis', 'pix gratis', 'pix de graça', 'pix gratuito', 'ganhe pix', 'pix promocional',
-        'receba pix', 'pix garantido', 'auxilio emergencial', 'cadastro positive', 'cpf negativado',
-        'emprestimo aprovado', 'cartão pré-aprovado', 'spc', 'serasa', 'nome limpo',
-        'whatsapp gold', 'conta bloqueada', 'confirme seus dados', 'clique no link'
+        'senha', 'banco', 'atualize seus dados', 'cartão de crédito', 'grátis', 'herança', 'dívida'
       ];
-      
-      // Verificação específica para golpes de criptomoedas
-      if (cryptoKeywords.some(keyword => lowerCaseText.includes(keyword))) {
-        resolve({ 
-          status: 'danger', 
-          message: 'ATENÇÃO! Esta mensagem menciona criptomoedas ou investimentos. Cuidado com golpes de "investimento garantido" ou "lucro fácil". Nunca invista com base apenas em mensagens do WhatsApp!' 
-        });
-        return;
-      }
-      
-      // Verificação para outros golpes comuns
       if (suspiciousKeywords.some(keyword => lowerCaseText.includes(keyword))) {
-        resolve({ 
-          status: 'danger', 
-          message: 'Cuidado! A mensagem contém palavras suspeitas que são comuns em golpes. Desconfie de ofertas "grátis", prêmios inesperados ou solicitações de dados pessoais.' 
-        });
+        resolve({ status: 'danger', message: 'Cuidado! A mensagem contém palavras suspeitas que são comuns em golpes.' });
         return;
       }
 
@@ -157,7 +131,7 @@ function App() {
       case 'danger':
         return (
           <div className="state-container result-danger">
-            <div className="icon">!</div>
+            <div className="icon">❗</div>
             <h2 className="result-title">Perigoso</h2>
             <p className="result-description">{resultMessage}</p>
             <div className="result-buttons">
